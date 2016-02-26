@@ -96,8 +96,8 @@ class TagsInput extends React.Component {
     let limit = this._maxTags(this.props.value.length)
     if (tag !== '' && limit && (isUnique || !onlyUnique)) {
       let value = this.props.value.concat([tag])
-      this.props.onChange(value)
-      this._clearInput()
+      const error = this.props.onChange(value)
+      if (!error) this._clearInput()
     }
   }
 

@@ -117,8 +117,8 @@
         var limit = this._maxTags(this.props.value.length);
         if (tag !== '' && limit && (isUnique || !onlyUnique)) {
           var value = this.props.value.concat([tag]);
-          this.props.onChange(value);
-          this._clearInput();
+          var error = this.props.onChange(value);
+          if (!error) this._clearInput();
         }
       }
     }, {
